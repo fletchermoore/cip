@@ -32,7 +32,7 @@ config :logger, :console,
 # IMPORT secrets file
 # you need to create this file with the mix task create_secrets
 # keep it out of version control
-import_config "cip.secret.exs"
+if File.exists?("cip.secret.exs") do import_config "cip.secret.exs" end
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

@@ -4,7 +4,7 @@ defmodule Cip.Mixfile do
   def project do
     [
       app: :cip,
-      version: "0.1",
+      version: "1.0.4",
       elixir: "~> 1.4",
       elixirc_paths: elixirc_paths(Mix.env),
       compilers: [:phoenix, :gettext] ++ Mix.compilers,
