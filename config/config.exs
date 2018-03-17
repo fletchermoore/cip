@@ -32,7 +32,8 @@ config :logger, :console,
 # IMPORT secrets file
 # you need to create this file with the mix task create_secrets
 # keep it out of version control
-if File.exists?("cip.secret.exs") do import_config "cip.secret.exs" end
+# The * wild card is so that it will continue to execute even if the file does not exist.
+import_config "cip.secret.exs*"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
