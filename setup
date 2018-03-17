@@ -1,8 +1,9 @@
 #!/bin/bash
 # this will create the development environment at least
-# docker-compose run web mix deps.get
-# docker-compose run web mix deps.compile
+docker-compose run web mix deps.get
+docker-compose run web mix deps.compile
 docker-compose run web mix ecto.create
 docker-compose run web mix ecto.migrate
 docker-compose run web mix create_secrets
+docker-compose run web npm install
 docker-compose down
