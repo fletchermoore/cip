@@ -1,0 +1,55 @@
+
+<div class="uk-container uk-margin-top">
+
+  <%= raw(@instructions) %>
+
+  <div class="uk-grid-divider" uk-grid>
+    <div class="uk-width-1-2">
+      <table class="uk-table uk-wdith-auto">
+        <tr>
+          <td>
+            <h3>Educational Puzzles</h3>
+          </td>
+        </tr>
+      </table>
+      <table class="uk-table uk-width-auto">
+        <%= for meta <- @puzzles_meta do %>
+          <tr>
+            <td>
+              <h4 style="display: inline"><a href="<%= exp_path(@conn, :show, meta.puzzle) %>"><%= meta.puzzle.title %></a></h4>
+            </td>
+            <td>
+              <%= if meta.is_complete do %>
+                <!-- we aren't showing these symbols anymore!
+                <span style="background-color: #00cc00; color: white; padding: 2px 10px; border-radius: 10px; font-size: 12px; font-weight: bold">COMPLETE</SPAN>
+                -->
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="uk-width-1-2">
+      <table class="uk-table uk-wdith-auto">
+        <tr>
+          <td>
+            <h3>Topic Review</h3>
+          </td>
+        </tr>
+      </table>
+
+      <table class="uk-table uk-width-auto">
+        <%= for lesson <- @lessons do %>
+          <tr>
+            <td>
+              <h4 style="display: inline"><a href="<%= control_path(@conn, :show, lesson) %>"><%= lesson.title %></a></h4>
+            </td>
+            <td>
+              &nbsp;
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

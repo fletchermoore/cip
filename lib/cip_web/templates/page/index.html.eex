@@ -1,0 +1,42 @@
+
+<div class="uk-container uk-margin-top">
+
+  <%= if @user do %>
+    <p>Logged in as: <%= @user.email %></p>
+
+    <p><a href="/logout">Logout</a></p>
+
+  <% else %>
+
+    <p>
+      You must log in to continue. Please contact your professor if you have not received an invitation.
+    </p>
+
+    <div>
+      <form method="POST" action="/login" class="uk-form-horizontal">
+        <div class="uk-margin">
+          <label class="uk-form-label">Email</label>
+          <div class="uk-form-controls">
+            <input type="text" name="username" class="uk-input uk-form-width-large" />
+          </div>
+          <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>">
+      </div>
+      <div class="uk-margin">
+        <label class="uk-form-label">Password</label>
+        <div class="uk-form-controls">
+          <input type="password" name="password" class="uk-input uk-form-width-large" />
+        </div>
+      </div>
+        <input type="submit" name="submit" value="Login" class="uk-button uk-button-primary" />
+      </form>
+    </div>
+
+  <% end %>
+
+<script>
+CSRF = "<%= get_csrf_token() %>"
+</script>
+
+  <div id="login-vue"></div>
+
+</div>

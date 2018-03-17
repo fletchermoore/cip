@@ -1,0 +1,26 @@
+<h2>Lessons</h2>
+
+<div id="lessons-vue"></div>
+
+<h3>Lesson List</h3>
+
+<p>Select a lesson below to edit it.</p>
+
+<div>
+  <%= for lesson <- @lessons do %>
+    <h4><a href="<%= lesson_path(@conn, :edit, lesson) %>"><%= lesson.title %></a></h4>
+
+        <!--
+          <%= link "Show", to: lesson_path(@conn, :show, lesson), class: "btn btn-default btn-xs" %>
+        -->
+
+  <% end %>
+</div>
+
+<div class="uk-margin-large-top">
+  <a href="<%= lesson_path(@conn, :new) %>"><button class="uk-button uk-button-primary">New Lesson</button></a>
+</div>
+
+<p>
+  <a href="/admin">Return to Control Panel</a>
+</p>

@@ -1,0 +1,17 @@
+
+<table class="uk-table uk-table-small">
+  <tr>
+    <th>User ID</th>
+    <th>Action</th>
+    <th>Target ID</th>
+    <th>Time</th>
+  </tr>
+  <%= for event <- @events do %>
+  <tr>
+    <td><%= event.user.email %></td>
+    <td><%= event.action %></td>
+    <td><%= event.target_id %></td>
+    <td><%= event.inserted_at %></td>
+  </tr>
+  <% end %>
+</table>

@@ -1,0 +1,11 @@
+
+<p>
+Your password has been reset. Your temporary password is:
+</p>
+
+<p> <%= @password %></p>
+
+<p>
+Sign in now at <%= link "#{page_url(@conn, :index)}", to: page_url(@conn, :index) %>.
+Don't forget to change your password after you sign in.
+</p>

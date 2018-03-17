@@ -1,0 +1,11 @@
+
+<p>
+  You have been invited to participate at <%= page_url(@conn, :index) %>. Your
+  temporary password is:
+</p>
+
+<p> <%= @password %></p>
+
+<p>
+Please visit <%= link "#{page_url(@conn, :index)}", to: page_url(@conn, :index) %> to get started.
+</p>

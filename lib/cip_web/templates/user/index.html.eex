@@ -1,0 +1,8 @@
+<h2>Users</h2>
+
+<script>
+  CSRF = "<%= get_csrf_token() %>"
+  USERS = <%= raw(@user_json) %>
+</script>
+
+<div id="users-vue"></div>

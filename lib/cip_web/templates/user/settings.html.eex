@@ -1,0 +1,32 @@
+
+<div></div> <!-- glug glug -->
+
+<h2>Settings</h2>
+
+<h3>Change Password</h3>
+
+<div>
+  <form method="POST" action="/settings" class="uk-form-horizontal">
+    <input type="hidden" name="_method" value="put" />
+    <div class="uk-margin">
+      <label class="uk-form-label">Current Password</label>
+      <div class="uk-form-controls">
+        <input type="password" name="old" class="uk-input" />
+      </div>
+      <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>">
+  </div>
+  <div class="uk-margin">
+    <label class="uk-form-label">New Password</label>
+    <div class="uk-form-controls">
+      <input type="password" name="new" class="uk-input" />
+    </div>
+  </div>
+  <div class="uk-margin">
+    <label class="uk-form-label">Retype New Password</label>
+    <div class="uk-form-controls">
+      <input type="password" name="validate" class="uk-input" />
+    </div>
+  </div>
+    <input type="submit" name="submit" value="Save" class="uk-button uk-button-primary" />
+  </form>
+</div>

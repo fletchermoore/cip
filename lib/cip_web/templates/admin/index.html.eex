@@ -1,0 +1,29 @@
+
+<div class="uk-container uk-margin-top">
+
+  <h2>Administrator Control Panel</h2>
+
+  <script>
+    CSRF = "<%= get_csrf_token() %>"
+  </script>
+
+
+  <div uk-grid>
+    <div class="uk-width-1-2">
+      <h3><a href="/users">Users</a></h3>
+      <p>Manage users accounts.</p>
+
+      <h3><a href="/puzzles">CIPs</a></h3>
+      <p>Create and update CIPs.</p>
+
+      <h3><a href="/lessons">Lessons</a></h3>
+      <p>Create and update the static lessons for the control group.</p>
+
+      <h3><a href="/dict">Dictionary</a></h3>
+      <p>Update the global dictionary.</p>
+    </div>
+    <div class="uk-width-1-2">
+      <div id="enable-button-vue"></div>
+    </div>
+  </div>
+</div>

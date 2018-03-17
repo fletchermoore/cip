@@ -1,0 +1,16 @@
+
+<h2><%= @puzzle.title %></h2>
+
+<script>
+  CONTENT = <%= raw(@puzzle.content) %>
+  ROW_COUNT = <%= @puzzle.row_count %>
+  CSRF = "<%= get_csrf_token() %>"
+  DICT = <%= raw(@dict) %>
+  CIP_ID = <%= @puzzle.id %>
+</script>
+
+<div id="puzzle-game"></div>
+
+<div class="uk-margin">
+  <%= link "Return to menu", to: puzzle_path(@conn, :index) %>
+</div>

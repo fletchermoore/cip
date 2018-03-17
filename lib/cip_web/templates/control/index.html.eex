@@ -1,0 +1,18 @@
+
+<h2>Topics</h2>
+
+<%= raw(@instructions) %>
+
+<table class="uk-table uk-width-auto">
+  <%= for meta <- @lessons do %>
+    <tr>
+      <td>
+        <h4 style="display: inline"><a href="<%= control_path(@conn, :show, meta.lesson) %>"><%= meta.lesson.title %></a></h4>
+      </td>
+      <td>&nbsp; <!-- mark as read icon removed -->
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+</div>

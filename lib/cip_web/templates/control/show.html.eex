@@ -1,0 +1,24 @@
+
+<div></div>
+
+<h2><%= @lesson.title %></h2>
+
+<script>
+DICT = <%= raw(@dict) %>
+IS_READ = <%= @is_read %>
+LESSON_ID = <%= @lesson.id %>
+CSRF = "<%= get_csrf_token() %>"
+</script>
+
+
+
+
+<div id="content"><%= raw(@lesson.content) %></div>
+
+
+<div id="lesson-vue"></div>
+
+
+<p class="uk-margin">
+<span><%= link "Return to menu", to: page_path(@conn, :index) %></span>
+</p>

@@ -1,0 +1,27 @@
+<h2>Puzzles</h2>
+
+<div id="cips-vue"></div>
+
+<div>
+  <table class="uk-table uk-width-auto">
+    <%= for puzzle <- @puzzles do %>
+      <tr>
+        <td>
+          <h4 style="display:inline"><%= puzzle.title %></h4>
+        </td>
+        <td>
+          <a href="<%= puzzle_path(@conn, :edit, puzzle) %>"><button class="uk-button uk-button-default uk-button-small">Edit</button></a>
+          <a href="<%= puzzle_path(@conn, :show, puzzle) %>"><button class="uk-button uk-button-default uk-button-small">Play</button></a>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<div class="uk-margin-large-top">
+  <a href="<%= puzzle_path(@conn, :new) %>"><button class="uk-button uk-button-primary">New CIP</button></a>
+</div>
+
+<p>
+  <a href="/admin">Return to Control Panel</a>
+</p>

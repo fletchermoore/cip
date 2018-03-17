@@ -1,0 +1,13 @@
+<h2>Show Dict</h2>
+
+<ul>
+
+  <li>
+    <strong>Content:</strong>
+    <%= @dict.content %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: dict_path(@conn, :edit, @dict) %></span>
+<span><%= link "Back", to: dict_path(@conn, :index) %></span>

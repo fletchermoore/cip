@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# lazy command to avoid typing this out over and over during development
+docker-compose run web $@

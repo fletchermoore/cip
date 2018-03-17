@@ -1,0 +1,5 @@
+<h2>Edit Dict</h2>
+
+<%= render "form.html", Map.put(assigns, :action, dict_path(@conn, :update, @dict)) %>
+
+<span><%= link "Back", to: dict_path(@conn, :index) %></span>

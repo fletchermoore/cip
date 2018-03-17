@@ -1,0 +1,9 @@
+
+You have been invited to participate at <%= page_url(@conn, :index) %>
+
+Your temporary password is:
+
+<%= @password %>
+
+
+Please visit <%= page_url(@conn, :index) %> to get started.

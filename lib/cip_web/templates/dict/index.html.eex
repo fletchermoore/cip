@@ -1,0 +1,18 @@
+<h2>Global Dictionary</h2>
+
+<p>Terms entered here will be highlighted within puzzles and lessons. If the
+  user hovers the mouse over the term, it will reveal the defintion.</p>
+</thead>
+
+<script>
+  CSRF = "<%= get_csrf_token() %>"
+  DICT = <%= raw(@dict) %>
+</script>
+
+<p>Don't forget to save your changes at the bottom after you add or delete terms.</p>
+
+<div id="dict-vue"></div>
+
+<div class="uk-margin-large-top uk-margin-large-bottom">
+  <a href="/admin">Return to control panel</a>
+</div>

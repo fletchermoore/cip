@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/uikit.min.css") %>">
+    <script src="<%= static_path(@conn, "/js/uikit.min.js") %>"></script>
+    <script>
+      const CSRF_TOKEN = "<%= get_csrf_token() %>"
+    </script>
+
+    <title>CIP</title>
+  </head>
+
+  <body>
+    <div class="uk-navbar-container" uk-navbar>
+      <div class="uk-navbar-left">
+        <a href="/" class="uk-navbar-item uk-logo">CIP</a>
+      </div>
+
+      <div class="uk-navbar-right">
+        <%= if user = Cip.Guardian.Plug.current_resource(@conn) do %>
+          <div class="uk-navbar-item"><%= user.email %></div>
+          <ul class="uk-navbar-nav">
+            <li><a href="/settings">Settings</a></li>
+            <li><a href="/logout">Sign out</a></li>
+          </ul>
+        <% else %>
+          <ul class="uk-navbar-nav">
+            <li><a href="/">Sign in</a></li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="uk-container uk-margin-top">
+
+      <p class="uk-alert-primary" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="uk-alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+
+      <main role="main">
+        <%= render @view_module, @view_template, assigns %>
+      </main>
+
+    </div> <!-- /container -->
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+  </body>
+</html>

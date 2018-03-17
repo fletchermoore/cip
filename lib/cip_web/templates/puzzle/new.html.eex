@@ -1,0 +1,20 @@
+<h2>New Puzzle</h2>
+
+<script>
+  CSRF = "<%= get_csrf_token() %>"
+  CONTENT = [
+    ["","","","",""],
+    ["","","","",""],
+    ["","","","",""],
+    ["","","","",""],
+    ["","","","",""],
+    ["","","","",""],
+    ["","","","",""]
+  ]
+  TITLE = "",
+  ROW_COUNT = 4
+  IS_INVALID = "<%= @changeset.action %>"
+  ID = 0
+</script>
+
+<div id="puzzle-editor"></div>
