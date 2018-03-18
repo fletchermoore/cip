@@ -1,4 +1,5 @@
 const path = require('path');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: "./assets/js/entry.js",
@@ -32,5 +33,11 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new CopyWebpackPlugin([
+      { from: './assets/css/uikit.min.css', to: '../css/uikit.min.css' },
+      { from: './assets/js/uikit.min.js', to: 'uikit.min.js' }
+    ])
+  ]
 };
