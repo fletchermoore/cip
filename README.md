@@ -34,7 +34,6 @@ Todo
 ====
 - The current state of this product is a development only server. Setting up a production server is up to you for the time being. But making this trivial is my #1 priority.
 - I will create options to disable or enable access restriction in the admin control panel.
-- Currently, the website has been used for research so I need to remove the Experimental and Control group attributes from users. Full access is currently only available to "Experimental" group users.
 
 Bugs
 ====
