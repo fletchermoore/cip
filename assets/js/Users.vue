@@ -8,8 +8,8 @@
       <thead>
         <tr>
           <th>Email</th>
-          <th>Group</th>
-          <th>Identifier</th>
+          <th>Role</th>
+          <th>Name</th>
           <th style="text-align: center">Invitation</th>
           <th>Actions</th>
         </tr>
@@ -24,7 +24,7 @@
           </td>
           <td v-else>
             <span v-if="user.is_control">Control</span>
-            <span v-else>Experimental</span>
+            <span v-else>Student</span>
           </td>
           <td>
             {{ user["identifier"] }}
@@ -45,6 +45,8 @@
       </tbody>
     </table>
     <h3>Create User</h3>
+    <p>Once you create a user, you must separately invite them by clicking the invite button in the table above. This will send
+      the user an email with their temporary password.</p>
     <form action="/users" method="post" class="uk-form-stacked uk-margin-large-bottom">
       <input type="hidden" name="_csrf_token" :value="csrf" />
       <div uk-grid>
@@ -55,6 +57,8 @@
           </div>
         </div>
         <div>
+          <input type="hidden" name="user[is_control]" value="false" />
+  <!-- remove experimental/control distinction
           <label class="uk-form-label">Group</label>
           <div class="uk-form-controls">
             <select class="uk-select" name="user[is_control]">
@@ -62,9 +66,10 @@
               <option value="false">Experimental</option>
             </select>
           </div>
+  -->
         </div>
         <div>
-          <label class="uk-form-label">Identifier</label>
+          <label class="uk-form-label">Name</label>
           <div class="uk-form-controls">
             <input type="text" class="uk-input" name="user[identifier]" />
           </div>
@@ -77,6 +82,8 @@
         </div>
       </div>
     </form>
+    <h3>Public Access</h3>
+    <div><PublicButton /></div>
         <!-- This is the user edit modal -->
         <div id="edit-user-modal" uk-modal>
             <div class="uk-modal-dialog uk-modal-body">
@@ -90,6 +97,8 @@
                       <input class="uk-input" type="text" name="user[email]" :value="activeUser.email" />
                     </div>
                   </p>
+                  <input type="hidden" name="user[is_control]" value="false" />
+  <!-- remove the experimental/control distinction
                   <p>
                     <label class="uk-form-label">Group</label>
                     <div class="uk-form-controls">
@@ -100,8 +109,9 @@
                       </select>
                     </div>
                   </p>
+  -->
                   <p>
-                    <label class="uk-form-label">Identifier</label>
+                    <label class="uk-form-label">Name</label>
                     <div class="uk-form-controls">
                       <input class="uk-input" type="text" name="user[identifier]" :value="activeUser.identifier" />
                     </div>
@@ -143,10 +153,11 @@
 <script>
 import axios from 'axios'
 import InviteButton from "./InviteButton.vue"
+import PublicButton from "./PublicButton.vue"
 import _ from 'lodash'
 
 export default {
-  components: { InviteButton },
+  components: { InviteButton, PublicButton },
   data () {
     return {
       csrf: CSRF,

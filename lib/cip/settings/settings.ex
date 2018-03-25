@@ -46,8 +46,9 @@ defmodule Cip.Settings do
   defp default(name) do
     case name do
       "is-site-enabled" -> "false"
+      "is-public-access" -> "false"
       "lesson-instructions" -> "<p>Study each of the topics below. There will be a test on the material at the end of the research project.</p>"
-      "cip-instructions" -> "<p>Fill out each of the puzzles below. You can solve them as many times as you like. There will be a test on the material at the end of the research project.</p>"
+      "cip-instructions" -> "<p>Complete the puzzle by clicking within a box to open the answer choices for that column. Then drag the correct answer from the answer choices to the correct box.</p>"
       _ -> "null"
     end
   end

@@ -3,15 +3,9 @@
 
   <%= raw(@instructions) %>
 
-  <div class="uk-grid-divider" uk-grid>
-    <div class="uk-width-1-2">
-      <table class="uk-table uk-wdith-auto">
-        <tr>
-          <td>
-            <h3>Educational Puzzles</h3>
-          </td>
-        </tr>
-      </table>
+  <h3>Educational Puzzles</h3>
+
+
       <table class="uk-table uk-width-auto">
         <%= for meta <- @puzzles_meta do %>
           <tr>
@@ -28,28 +22,6 @@
           </tr>
         <% end %>
       </table>
-    </div>
-    <div class="uk-width-1-2">
-      <table class="uk-table uk-wdith-auto">
-        <tr>
-          <td>
-            <h3>Topic Review</h3>
-          </td>
-        </tr>
-      </table>
 
-      <table class="uk-table uk-width-auto">
-        <%= for lesson <- @lessons do %>
-          <tr>
-            <td>
-              <h4 style="display: inline"><a href="<%= control_path(@conn, :show, lesson) %>"><%= lesson.title %></a></h4>
-            </td>
-            <td>
-              &nbsp;
-            </td>
-          </tr>
-        <% end %>
-      </table>
-    </div>
-  </div>
+
 </div>
