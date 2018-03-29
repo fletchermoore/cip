@@ -20,6 +20,10 @@ defmodule CipWeb.Router do
     plug CipWeb.Plugs.EnsureEnabled
   end
 
+  pipeline :maybe_require_login do
+    plug CipWeb.Plugs.MaybeRequireLogin
+  end
+
   pipeline :browser do
     plug :accepts, ["html", "json"]
     plug :fetch_session
@@ -46,9 +50,9 @@ defmodule CipWeb.Router do
     post "/reset", UserController, :reset_pw
   end
 
-  # these routes require control/exp user login and the site must be enabled
+  # these routes check if login is required and if the site is enabled
   scope "/", CipWeb do # require a log in of some sort
-    pipe_through [:browser, :browser_auth, :require_login, :ensure_enabled]
+    pipe_through [:browser, :browser_auth, :maybe_require_login, :ensure_enabled]
 
     get "/cips", ExpController, :index # requires exp permission
     get "/cips/:id", ExpController, :show

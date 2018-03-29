@@ -5,7 +5,9 @@ defmodule CipWeb.ExpController do
   alias Cip.Puzzles
   alias Cip.Puzzles.Puzzle
 
-  plug Guardian.Permissions.Bitwise, ensure: %{user: [:exp]}
+  # The experimental/control group distinction is no longer meaningful
+  # any user can access the cips, so I have commented out the following line
+  #plug Guardian.Permissions.Bitwise, ensure: %{user: [:exp]}
 
   def index(conn, _params) do
     puzzles = Puzzles.list_puzzles()
@@ -22,9 +24,11 @@ defmodule CipWeb.ExpController do
 
     # log access
     user = Cip.Guardian.Plug.current_resource(conn)
-    user
-    |> Ecto.build_assoc(:events, %{action: "access cip", target_id: puzzle.id})
-    |> Cip.Repo.insert!
+    if user do
+      user
+      |> Ecto.build_assoc(:events, %{action: "access cip", target_id: puzzle.id})
+      |> Cip.Repo.insert!
+    end
 
     render(conn, "show.html", puzzle: puzzle, dict: dict.content)
   end
@@ -34,9 +38,11 @@ defmodule CipWeb.ExpController do
 
     # log access
     user = Cip.Guardian.Plug.current_resource(conn)
-    user
-    |> Ecto.build_assoc(:events, %{action: "complete cip", target_id: puzzle.id})
-    |> Cip.Repo.insert!
+    if user do
+      user
+      |> Ecto.build_assoc(:events, %{action: "complete cip", target_id: puzzle.id})
+      |> Cip.Repo.insert!
+    end
 
     render(conn, "mark.json")
   end

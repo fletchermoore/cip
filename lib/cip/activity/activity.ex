@@ -9,7 +9,12 @@ defmodule Cip.Activity do
   alias Cip.Activity.Event
 
   def puzzle_meta(user, puzzles) do
-    events = Repo.all(from e in Event, where: e.user_id == ^user.id, where: e.action == "complete cip")
+    user_id =
+      case user do
+        nil -> 0 # there may not be a user, but don't crash
+        _ -> user.id
+      end
+    events = Repo.all(from e in Event, where: e.user_id == ^user_id, where: e.action == "complete cip")
     Enum.map(puzzles, fn(p) -> %{puzzle: p, is_complete: find_match(p, events)} end)
   end
 

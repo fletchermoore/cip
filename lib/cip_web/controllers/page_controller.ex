@@ -3,13 +3,17 @@ defmodule CipWeb.PageController do
   alias Cip.Users
 
   def index(conn, _params) do
-    user = Cip.Guardian.Plug.current_resource(conn)
-    if user do
-      home_page = Users.home_page(user)
-      conn
-      |> redirect(to: home_page)
-    else
-      render conn, "index.html", user: user
+    case Cip.Settings.get_option("is-public-access").value do
+      "true" -> redirect(conn, to: "/cips")
+      "false" ->
+        user = Cip.Guardian.Plug.current_resource(conn)
+        if user do
+          home_page = Users.home_page(user)
+          conn
+          |> redirect(to: home_page)
+        else
+          render conn, "index.html", user: user
+        end
     end
   end
 
