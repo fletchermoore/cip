@@ -1,5 +1,7 @@
 <template>
   <div>
+    <p>In order to send email invitations, you must have Mailgun or a similar email provider configured. Contact your site administrator if users are not receiving emails with their temporary passwords.
+    </p>
     <div class="uk-text-right">
       <label for="hideDeleted">Hide Deleted</label>
       <input type="checkbox" class="uk-checkbox" id="hideDeleted" v-model="hideDeleted"/>

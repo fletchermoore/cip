@@ -44,6 +44,7 @@ defmodule CipWeb.Router do
     pipe_through [:browser, :browser_auth] # Use the default browser stack
 
     get "/", PageController, :index
+    get "/login", PageController, :login
     post "/login", SessionController, :create
     get "/logout", SessionController, :delete
 

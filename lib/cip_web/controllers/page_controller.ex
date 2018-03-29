@@ -12,9 +12,13 @@ defmodule CipWeb.PageController do
           conn
           |> redirect(to: home_page)
         else
-          render conn, "index.html", user: user
+          render conn, "login.html", user: user
         end
     end
+  end
+
+  def login(conn, _params) do
+    render conn, "login.html", user: nil
   end
 
   def test(conn, _params) do

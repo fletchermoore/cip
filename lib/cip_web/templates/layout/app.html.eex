@@ -30,7 +30,7 @@
           </ul>
         <% else %>
           <ul class="uk-navbar-nav">
-            <li><a href="/">Sign in</a></li>
+            <li><a href="/login">Sign in</a></li>
           </ul>
         <% end %>
       </div>
