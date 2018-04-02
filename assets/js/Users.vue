@@ -32,7 +32,7 @@
             {{ user["identifier"] }}
           </td>
           <td class="text-right">
-            <InviteButton v-if="!user.is_deleted" :user="user" />
+            <span v-if="!user.is_admin"><InviteButton v-if="!user.is_deleted" :user="user" /></span>
             <!-- <button class="uk-button uk-button-default uk-button-small" v-on:click="edit(user)">Edit</button> -->
             <!-- <button class="uk-button uk-button-danger uk-button-small">Disable</button> -->
           </td>

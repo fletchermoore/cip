@@ -41,7 +41,7 @@ export default {
         }
       })
       .catch(function (error) {
-        alert('network error. contact sys admin.');
+        alert('Error: Is an email service such as Mailgun configured correctly?');
       });
     }
   }

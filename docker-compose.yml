@@ -1,13 +1,27 @@
 web:
   build: .
   ports:
+    - "80:80"
+  command: mix phx.server
+  environment:
+    - MIX_ENV=prod
+    - PORT=80
+    - MAILGUN_API_KEY=key-00000000000000000000000000000000
+    - MAILGUN_DOMAIN=example.com
+    - URL_DOMAIN=example.com
+    - URL_PORT=80
+  volumes:
+    - .:/app
+  links:
+    - db
+dev:
+  build: .
+  ports:
     - "4000:4000"
   command: mix phx.server
   environment:
     - MIX_ENV=dev
     - PORT=4000
-    - MAILGUN_API_KEY=key-00000000000000000000000000000000
-    - MAILGUN_DOMAIN=example.com
     - URL_DOMAIN=example.com
     - URL_PORT=4000
   volumes:
