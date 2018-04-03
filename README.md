@@ -15,12 +15,14 @@ This will set up a production environment on Linux:
 
 Alternatively, you can install PostgreSQL and Phoenix framework on your system
 directly. Refer to the Phoenix Framework and PosgreSQL websites for instructions.
-Ensure versions of Elixir, Erlang, Phoenix, etc. are the same.
+Ensure versions of Elixir, PostgreSQL, Phoenix, etc. are the same as in the `Dockerfile` and `docker-compose.yml`.
 
 The current/default version uses a mailgun.com account to create access restriction. Users must first be invited by email. They can recover their passwords with email as well. If you do not intend
 to create individual users, select the option to make the website available to the public from
 the Users page of the control panel. If Mailgun does not make sense for your use case, but you would like to use another email provider, you will need to configure a different email server with Bamboo. Check out that project on Github
 for more information (https://github.com/thoughtbot/bamboo). On the development version, emails can be seen by navigating to `/sent_emails` as per the Bamboo mailer documentation.
+
+Running from a subdomain or via proxy is up to you. Setting up a development environment is similar. Simply replace `web` with `dev` in the steps above.
 
 docker-compose.yml
 ==================
@@ -32,6 +34,7 @@ You will need to set `MAILGUN_API_KEY` and `MAILGUN_DOMAIN` per the Mailgun inst
 
 Bugs
 ====
-I have encountered a rare bug, I believe with sortable.js that stops the
+- I am unable to get the site working on Windows Home with Docker Toolbox at this time because the `npm install` step fails.
+- I have encountered a rare bug, I believe with sortable.js that stops the
 drag and drop feature from working. This has required restarting the browser
 to fix. I am unable to reproduce it reliably.
