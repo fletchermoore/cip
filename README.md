@@ -3,8 +3,8 @@ Install
 
 This will set up a production environment:
 
-1. Install Docker. Follow the instructions online to get setup on your machine.
-2. Install docker-compose. Again, follow the online instructions for your machine.
+1. Install Docker. Follow the instructions online (https://docs.docker.com/install/) to get setup on your machine.
+2. Install docker-compose. Again, follow the online instructions (https://docs.docker.com/compose/install/) for your machine.
 3. Configure the `docker-compose.yml` file environmental variables. See the section below.
 3. Run `./setup` from the application directory. Take a look at this file to see what it is doing.
 4. Run `docker-compose run web mix create_admin` to enter an admin username and password
