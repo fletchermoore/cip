@@ -29,7 +29,8 @@ docker-compose.yml
 You will need to update the `URL_DOMAIN` to your website domain and the `URL_PORT` to your port. These are
 used by Phoenix to create URLs dynamically, such as http://URL_DOMAIN:URL_PORT/some/path
 
-You will need to set `MAILGUN_API_KEY` and `MAILGUN_DOMAIN` per the Mailgun instructions. 
+You will need to set `MAILGUN_API_KEY` and `MAILGUN_DOMAIN` per the Mailgun instructions. The `MAILGUN_API_KEY` will look
+something like `key-1191ded823a3303bfe40948c9ffabcdef` and the `MAILGUN_DOMAIN` I believe defaults to something like `mg.example.com`.
 
 
 Bugs
